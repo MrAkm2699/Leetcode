@@ -16,12 +16,6 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 /***********************************CODE*****************************/
   int removeElement(vector<int>& nums, int val) {
-        int ans=0;
-        for(int i=0;i<nums.size();i++)
-        {
-            if(nums[i]!=val)
-                ans++;
-        }
         int l=0;
         for(int i=0;i<nums.size();i++)
         {
@@ -30,5 +24,5 @@ It does not matter what you leave beyond the returned k (hence they are undersco
                nums[l++]=nums[i];
            }
         }   
-        return ans;
+        return l;
     }
