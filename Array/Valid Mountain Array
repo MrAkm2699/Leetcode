@@ -1,0 +1,64 @@
+/*******************************
+Example 1:
+Input: arr = [2,1]
+Output: false
+
+Example 2:
+Input: arr = [3,5,5]
+Output: false
+
+Example 3:
+Input: arr = [0,3,2,1]
+Output: true
+********************************/
+
+/***********************CODE*better************************/
+
+bool validMountainArray(vector<int>& arr) {
+
+        int n=arr.size();
+        if(n<3)
+            return false;
+        int l=0;
+        int r=n-1;
+        
+        while(l+1<n-1 and arr[l]<arr[l+1])
+            l++;
+        while(r-1>0 and arr[r]<arr[r-1])
+            r--;
+        
+        return l==r;
+}
+
+/********************************CODe-2***********
+
+bool validMountainArray(vector<int>& arr) {
+        int bar=-1;
+        if(arr.size()<3)
+            return false;
+        
+        for(int i=1;i<arr.size();i++)
+        {
+            if(arr[i]>arr[i-1])
+            {
+                if(bar==1)
+                    return false;
+               bar=0;
+            }
+            else 
+                if(arr[i]==arr[i-1])
+                    return false;
+            else{
+                if(bar==0)
+                    bar=1;
+                if(bar==-1) 
+                    return false;
+                }
+        }
+          if(bar==1)
+            return true;
+        return false;
+    }
+
+
+**************************************************/
